@@ -10,7 +10,7 @@
 - [26. Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/)
 
 ### In progress:
-
+- [35. Search Insert Position](https://leetcode.com/problems/search-insert-position/)
 
 
 
