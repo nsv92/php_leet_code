@@ -1,3 +1,5 @@
 includes:
 	- phar://vendor/phpstan/phpstan/phpstan.phar/conf/config.levelmax.neon
 parameters:
+    scanDirectories:
+            - /Users/sergei_n/study/php_leet_code

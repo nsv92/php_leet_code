@@ -12,5 +12,15 @@
   "require-dev": {
     "phpunit/phpunit": "^9.6",
     "phpstan/phpstan": "^1.10"
+  },
+  "autoload": {
+    "psr-4": {
+      "SearchInsertPosition\\": "SearchInsertPosition"
+    },
+    "autoload-dev": {
+      "psr-4": {
+        "Tests\\": "tests/"
+      }
+    }
   }
 }

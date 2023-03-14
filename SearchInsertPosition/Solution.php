@@ -4,33 +4,56 @@ declare(strict_types=1);
 
 namespace SearchInsertPosition;
 
-
+/**
+ * Class Solution
+ *
+ * @package SearchInsertPosition
+ */
 class Solution
 {
+    /**
+     * @param Integer[] $nums
+     * @param Integer $target
+     * @return Integer
+     */
+    public function searchInsertEasy(array $nums, int $target): int
+    {
+        if (in_array($target, $nums)) {
+            return array_search($target, $nums);
+        }
+        $nums[] = $target;
+        sort($nums);
+        return array_search($target, $nums);
+    }
 
     /**
      * @param Integer[] $nums
      * @param Integer $target
      * @return Integer
      */
-    function searchInsert(array $nums, int $target): int
+    public function searchInsert(array $nums, int $target): int
     {
-        if (in_array($target, $nums)) {
-            return array_search($target, $nums);
+        $high = count($nums) - 1;
+        $low = 0;
+
+        while ($low <= $high) {
+            $mid = intval(($low + $high) / 2);
+            $midval = $nums[$mid];
+
+            if ($midval < $target) {
+                $low = $mid + 1;
+            } else {
+                if ($midval > $target) {
+                    $high = $mid - 1;
+                } else {
+                    return $mid;
+                }
+            }
         }
-        $l = 0;
-        $length = count($nums);
-        $m = $length / 2;
-        while ($m - $l > 1) {
-            if ($nums[$m] > $target) {
-                $m /= 2;
-            } elseif ($nums[$m] < $target) {
-                $l = $m;
-                $m = $length - 1;
-            } else return $m;
+
+        if ($target > $midval) {
+            $mid++;
         }
-        if ($target < $nums[$m]) {
-            return $m - 1;
-        } else return $m + 1;
+        return $mid;
     }
 }
